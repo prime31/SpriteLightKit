@@ -73,6 +73,12 @@ public class SpriteLightKit : MonoBehaviour
 			UnityEngine.Object.DestroyImmediate( _quadTransform.GetComponent<Collider>() );
 		}
 
+		var aspect = (float)mainCamera.pixelWidth / (float)mainCamera.pixelHeight;
+		if( float.IsNaN( aspect ) )
+		{
+			Debug.LogWarning( "main camera pixelWidth is 0. This can happen when Unity launches or loads a new scene. Nothing much to worry about." );
+			aspect = 1.8f;
+		}
 		_quadTransform.parent = transform;
 		_quadTransform.localPosition = Vector3.forward;
 		_quadTransform.localScale = new Vector3( (float)mainCamera.pixelWidth / (float)mainCamera.pixelHeight, 1f, 1f ) * mainCamera.orthographicSize * 2f;
