@@ -5,6 +5,8 @@ Shader "prime[31]/Sprite Light"
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
 		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend Source", Float) = 5
+		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend Destination", Float) = 1
 	}
 
 	SubShader
@@ -22,14 +24,7 @@ Shader "prime[31]/Sprite Light"
 		Lighting Off
 		ZWrite Off
 
-		Blend SrcAlpha One // additive blending
-
-		// TODO: expose these as a Property
-		//Blend SrcAlpha OneMinusSrcAlpha // alpha blending
-		//Blend One OneMinusSrcAlpha 	// premultiplied alpha blending
-		//Blend One One					// additive
-		//Blend OneMinusDstColor One    // soft additive
-
+		Blend [_BlendSrc] [_BlendDst]
 
 		Pass
 		{
