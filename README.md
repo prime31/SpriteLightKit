@@ -3,7 +3,7 @@
 SpriteLightKit brings back the old two buffered blend trick to get pseudo lighting with just sprites. It handles the setup process of getting that second buffer displayed on a full screen quad and blended with your normal scene.
 
 
-![how it works](http://cl.ly/c6xL/spritelightkit.png)
+![how it works](http://cl.ly/c7Xq/687474703a2f2f636c2e6c792f6336784c2f7370726974656c696768746b69742e706e67.png)
 
 The same scene with two different ambient light setups:
 
