@@ -25,6 +25,11 @@ You can set the ambient lighting by changing the background color of the camera 
 Lights look best when they are white and falloff to 0 alpha. That lets you use the tint color to color the lights. Setting the tint color's alpha lets you set the intensity of the lights. Get creative with your light shapes and experiment!
 
 
+### Credit
+
+The sweet little town sketch is from the amazing work of @pixelatedcrown. Follow on Twitter and [Tumblr](http://pixelatedcrown.tumblr.com/) to see more awesome art!
+
+
 
 #### License
 
