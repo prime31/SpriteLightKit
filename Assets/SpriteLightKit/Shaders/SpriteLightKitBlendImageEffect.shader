@@ -1,4 +1,4 @@
-Shader "prime[31]/Sprite Light Kit Blend Post Process"
+Shader "prime[31]/Sprite Light Kit Blend Image Effect"
 {
 	Properties
 	{
@@ -8,11 +8,6 @@ Shader "prime[31]/Sprite Light Kit Blend Post Process"
 	
 	SubShader
 	{
-		//Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
-
-		//Blend DstColor Zero           // multiplicative
-		//Blend DstColor SrcColor       // 2x multiplicative
-
 		ZWrite Off
 		ZTest Always
 		Cull Off

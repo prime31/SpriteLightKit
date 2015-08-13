@@ -3,7 +3,7 @@ using System.Collections;
 
 
 [ExecuteInEditMode]
-public class SpriteLightKitPostProcessor : MonoBehaviour
+public class SpriteLightKitImageEffect : MonoBehaviour
 {
 	public Shader shader;
 	public RenderTexture spriteLightRT;

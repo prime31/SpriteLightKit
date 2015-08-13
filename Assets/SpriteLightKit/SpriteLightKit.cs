@@ -92,9 +92,9 @@ public class SpriteLightKit : MonoBehaviour
 			_spriteLightCamera.targetTexture = _texture;
 
 			// ensure the SpriteLightKitPostProcessor is on the Camera
-			var postProcessor = mainCamera.GetComponent<SpriteLightKitPostProcessor>();
+			var postProcessor = mainCamera.GetComponent<SpriteLightKitImageEffect>();
 			if( postProcessor == null )
-				postProcessor = mainCamera.gameObject.AddComponent<SpriteLightKitPostProcessor>();
+				postProcessor = mainCamera.gameObject.AddComponent<SpriteLightKitImageEffect>();
 
 			postProcessor.spriteLightRT = _texture;
 		}
