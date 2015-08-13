@@ -1,6 +1,6 @@
 # SpriteLightKit
 
-SpriteLightKit brings back the old two buffered blend trick to get pseudo lighting with just sprites. It handles the setup process of getting that second buffer displayed on a full screen quad and blended with your normal scene.
+SpriteLightKit brings back the old two buffered blend trick to get pseudo lighting with just sprites. It handles the setup process of getting that second buffer blended with your normal scene.
 
 
 ![how it works](http://cl.ly/c7Xq/687474703a2f2f636c2e6c792f6336784c2f7370726974656c696768746b69742e706e67.png)
@@ -14,16 +14,19 @@ The same scene with two different ambient light setups:
 ## Setup
 
 - create an empty GameObject as a child of your main camera and add the SpriteLightKit component
-- set the Camera and Material (SpriteLightKitBlendMaterial) in the SpriteLightKit inspector
-- set the Light Layer, which is the layer you want to place your sprite lights on
+- add the SpriteLightKitPostProcessor component to your main camera
+- set the Light Layer in the SpriteLightKit component, which is the layer you want to place your sprite lights on
+- remove the Light Layer from your main camera's culling mask so that it does not render the sprite lights
 - create some sprites using the SpriteLightMaterial and make sure they are on the Light Layer you chose in the previous step
 
 
 You can set the ambient lighting by changing the background color of the camera on the SpriteLightKit GameObject. Each of your lights can use the normal sprite tint color to change how it affects the underlying scene.
 
 
-Lights look best when they are white and falloff to 0 alpha. That lets you use the tint color to color the lights. Setting the tint color's alpha lets you set the intensity of the lights. Get creative with your light shapes and experiment!
+Lights look best when they are white and falloff to 0 alpha. That lets you use the tint color to color the lights. Setting the tint color's alpha lets you set the intensity of the lights. Get creative with your light shapes and experiment! If you need to occlude lights (if you have walls where light shouldn't pass for example) you can just use any black sprite and place it so that it blocks the light however you want it to.
 
+
+The SpriteLightColorCycler component can be added to any of your sprite lights to give them some extra flair. It lets you animate the light intensity and colors in a variety of differnt ways. Play around with the inspector to get something that looks good and fits your game.
 
 
 #### License

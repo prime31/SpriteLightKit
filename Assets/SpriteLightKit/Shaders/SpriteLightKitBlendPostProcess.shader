@@ -1,18 +1,21 @@
-Shader "prime[31]/Sprite Light Kit Blend"
+Shader "prime[31]/Sprite Light Kit Blend Post Process"
 {
 	Properties
 	{
 		_MainTex ( "Base (RGB)", 2D ) = "white" {}
+		_LightsTex ( "Lights (RGB)", 2D ) = "white" {}
 	}
 	
 	SubShader
 	{
-		Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
+		//Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
 
-		Blend DstColor Zero           // multiplicative
+		//Blend DstColor Zero           // multiplicative
 		//Blend DstColor SrcColor       // 2x multiplicative
 
 		ZWrite Off
+		ZTest Always
+		Cull Off
 
 		Pass
 		{
@@ -27,6 +30,7 @@ CGPROGRAM
 // uniforms
 sampler2D _MainTex;
 uniform float4 _MainTex_ST;
+sampler2D _LightsTex;
 
 
 struct vertexInput
@@ -56,7 +60,10 @@ fragmentInput vert( vertexInput i )
 
 half4 frag( fragmentInput i ) : COLOR
 {
-	return tex2D( _MainTex, i.uv );
+	half4 main = tex2D( _MainTex, i.uv );
+	half4 lights = tex2D( _LightsTex, i.uv );
+
+	return main * lights;
 }
 
 ENDCG
