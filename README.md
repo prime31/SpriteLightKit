@@ -26,7 +26,10 @@ You can set the ambient lighting by changing the background color of the camera 
 Lights look best when they are white and falloff to 0 alpha. That lets you use the tint color to color the lights. Setting the tint color's alpha lets you set the intensity of the lights. Get creative with your light shapes and experiment! If you need to occlude lights (if you have walls where light shouldn't pass for example) you can just use any black sprite and place it so that it blocks the light however you want it to.
 
 
-The SpriteLightColorCycler component can be added to any of your sprite lights to give them some extra flair. It lets you animate the light intensity and colors in a variety of differnt ways. Play around with the inspector to get something that looks good and fits your game.
+### Credit
+
+The sweet little town sketch is from the amazing work of @pixelatedcrown. Follow on Twitter and [Tumblr](http://pixelatedcrown.tumblr.com/) to see more awesome art!
+
 
 
 #### License
