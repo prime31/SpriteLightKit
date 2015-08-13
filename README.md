@@ -14,7 +14,7 @@ The same scene with two different ambient light setups:
 ## Setup
 
 - create an empty GameObject as a child of your main camera and add the SpriteLightKit component
-- add the SpriteLightKitImageEffect component to your main camera and drag the SpriteLightKitBlendImageEffect in the inspector
+- add the SpriteLightKitImageEffect component to your main camera and drag the SpriteLightKitBlendImageEffect.shader into the inspector in the shader property
 - set the Light Layer in the SpriteLightKit component, which is the layer you want to place your sprite lights on
 - remove the Light Layer from your main camera's culling mask so that it does not render the sprite lights
 - create some sprites using the SpriteLightMaterial and make sure they are on the Light Layer you chose in the previous step
