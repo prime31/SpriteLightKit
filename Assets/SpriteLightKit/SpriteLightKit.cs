@@ -17,6 +17,9 @@ public class SpriteLightKit : MonoBehaviour
 	Transform _quadTransform;
 
 	RenderTexture _texture;
+	// we need to keep track of these so that if they change we update the RT
+	int _lastScreenWidth = -1;
+	int _lastScreenHeight = -1;
 
 
 	void OnEnable()
@@ -33,7 +36,7 @@ public class SpriteLightKit : MonoBehaviour
 	void OnPreRender()
 	{
 		// if our camera orthoSize changes we need to change our orthoSize
-		if( mainCamera.orthographicSize != _previousCameraOrthoSize )
+		if( mainCamera.orthographicSize != _previousCameraOrthoSize || _lastScreenWidth != Screen.width || _lastScreenHeight != Screen.height )
 		{
 			_spriteLightCamera.orthographicSize = mainCamera.orthographicSize;
 			_previousCameraOrthoSize = mainCamera.orthographicSize;
@@ -84,6 +87,10 @@ public class SpriteLightKit : MonoBehaviour
 				_texture.Release();
 				UnityEngine.Object.DestroyImmediate( _texture );
 			}
+
+			// keep track of these so we know when the resolution changes
+			_lastScreenWidth = Screen.width;
+			_lastScreenHeight = Screen.height;
 				
 			_texture = new RenderTexture( _spriteLightCamera.pixelWidth, _spriteLightCamera.pixelHeight, 24, RenderTextureFormat.Default );
 			_texture.name = "SpriteLightKit RT";

@@ -1,12 +1,12 @@
-Shader "prime[31]/Sprite Light"
+Shader "prime[31]/Sprite Light Kit/Sprite Light"
 {
 	Properties
 	{
-		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		_Color ("Tint", Color) = (1,1,1,1)
-		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendSrc ("Blend Source", Float) = 5
-		[Enum(UnityEngine.Rendering.BlendMode)] _BlendDst ("Blend Destination", Float) = 1
+		[PerRendererData] _MainTex ( "Sprite Texture", 2D ) = "white" {}
+		_Color ( "Tint", Color ) = ( 1, 1, 1, 1 )
+		[MaterialToggle] PixelSnap ( "Pixel snap", Float ) = 0
+		[Enum( UnityEngine.Rendering.BlendMode )] _BlendSrc ( "Blend Source", Float ) = 5
+		[Enum( UnityEngine.Rendering.BlendMode )] _BlendDst ( "Blend Destination", Float ) = 1
 	}
 
 	SubShader

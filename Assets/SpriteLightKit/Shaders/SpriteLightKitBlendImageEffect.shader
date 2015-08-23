@@ -1,9 +1,10 @@
-Shader "prime[31]/Sprite Light Kit Blend Image Effect"
+Shader "prime[31]/Sprite Light Kit/Blend Image Effect"
 {
 	Properties
 	{
 		_MainTex ( "Base (RGB)", 2D ) = "white" {}
 		_LightsTex ( "Lights (RGB)", 2D ) = "white" {}
+		_MultiplicativeFactor ( "Multiplier", float ) = 1.0
 	}
 	
 	SubShader
@@ -14,6 +15,12 @@ Shader "prime[31]/Sprite Light Kit Blend Image Effect"
 
 		Pass
 		{
+			Stencil
+			{
+			    Ref 1
+			    ReadMask 2
+			    Comp Equal
+			}
 CGPROGRAM
 #pragma fragmentoption ARB_precision_hint_fastest
 #pragma vertex vert
@@ -26,6 +33,7 @@ CGPROGRAM
 sampler2D _MainTex;
 uniform float4 _MainTex_ST;
 sampler2D _LightsTex;
+float _MultiplicativeFactor;
 
 
 struct vertexInput
@@ -58,7 +66,7 @@ half4 frag( fragmentInput i ) : COLOR
 	half4 main = tex2D( _MainTex, i.uv );
 	half4 lights = tex2D( _LightsTex, i.uv );
 
-	return main * lights;
+	return _MultiplicativeFactor * main * lights;
 }
 
 ENDCG

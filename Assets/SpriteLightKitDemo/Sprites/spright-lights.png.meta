@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: e7227a2d9681e455483e41246c46f660
-timeCreated: 1438302455
+timeCreated: 1440359006
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: spright-lights_rod
     21300002: spright-lights_pixellated
     21300004: spright-lights_point
+    21300006: spright-lights_pac-man
+    21300008: spright-lights_opaque-square
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -79,6 +81,26 @@ TextureImporter:
         y: 0
         width: 128
         height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spright-lights_pac-man
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 111
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spright-lights_opaque-square
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 116
+        width: 3
+        height: 3
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
