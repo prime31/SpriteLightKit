@@ -15,11 +15,11 @@ Shader "prime[31]/Sprite Light Kit/Blend Image Effect"
 
 		Pass
 		{
+			// all emissives write 2 to the stencil buffer. We want to render everything except those pixels
 			Stencil
 			{
-			    Ref 1
-			    ReadMask 2
-			    Comp Equal
+			    Ref 2
+			    Comp NotEqual
 			}
 CGPROGRAM
 #pragma fragmentoption ARB_precision_hint_fastest
