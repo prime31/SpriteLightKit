@@ -35,6 +35,10 @@ public class SpriteLightKitImageEffect : MonoBehaviour
 
 	void OnRenderImage( RenderTexture source, RenderTexture destination )
 	{
+		// if SpriteLightKit is disabled this RT will no longer be valid
+		if( spriteLightRT == null )
+			return;
+		
 		material.SetTexture( "_LightsTex", spriteLightRT );
 		material.SetFloat( "_MultiplicativeFactor", use2xMultiplicationBlending ? 2f : 1f );
 		Graphics.Blit( source, destination, material );
