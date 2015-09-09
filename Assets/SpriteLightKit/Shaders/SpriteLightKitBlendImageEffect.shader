@@ -1,4 +1,4 @@
-Shader "prime[31]/Sprite Light Kit/Blend Image Effect"
+Shader "Hidden/Blend Image Effect"
 {
 	Properties
 	{
