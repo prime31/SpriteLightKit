@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace SpriteLightKit
+namespace Prime31
 {
 	[ExecuteInEditMode]
 	public class SpriteLightKit : MonoBehaviour
