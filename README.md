@@ -39,6 +39,17 @@ Since the emissive materials main purpose is to write to the stencil buffer you 
 
 
 
+## Advanced Shadow Features
+
+SpriteLightKit can also cast simple offset shadows. The current implementation uses a brute force approach to find affected lights but a b-tree or other spatial search will be added to speed things up. The shadow shader is ready to handle approximated planar shadows (via skew and scale in addition to the offset) but it hasn't yet been implemented due to some decisions that need to be made about how to best handle things.
+
+Implementing shadows requires the following steps:
+
+- stick the SpriteLightKitLightManager on a GameObject in your scene
+- add the SpriteLightKitShadow component to any objects that should project shadows
+- make sure the objects that should cast shadows have the SpriteLightShadowedMaterial on them
+
+
 ### Credit
 
 The sweet little town sketch is from the amazing work of @pixelatedcrown. Follow on Twitter and [Tumblr](http://pixelatedcrown.tumblr.com/) to see more awesome art!
