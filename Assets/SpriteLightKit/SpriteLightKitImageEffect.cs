@@ -9,7 +9,7 @@ namespace Prime31
 	{
 		public Shader shader;
 		public RenderTexture spriteLightRT;
-		public bool use2xMultiplicationBlending = false;
+		[Range(0.0f, 2.0f)] public float intensity = 1.0f;
 		Material _material;
 
 
@@ -45,7 +45,7 @@ namespace Prime31
 				return;
 		
 			material.SetTexture( "_LightsTex", spriteLightRT );
-			material.SetFloat( "_MultiplicativeFactor", use2xMultiplicationBlending ? 2f : 1f );
+			material.SetFloat( "_MultiplicativeFactor", intensity );
 			Graphics.Blit( source, destination, material );
 		}
 	}
