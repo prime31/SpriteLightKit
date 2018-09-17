@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "prime[31]/Sprite Light Kit/Emissive Sprite"
 {
 	Properties
@@ -56,7 +58,7 @@ Shader "prime[31]/Sprite Light Kit/Emissive Sprite"
 			v2f vert( appdata_t IN )
 			{
 				v2f OUT;
-				OUT.vertex = mul( UNITY_MATRIX_MVP, IN.vertex );
+				OUT.vertex = UnityObjectToClipPos( IN.vertex );
 				OUT.texcoord = IN.texcoord;
 				#ifdef PIXELSNAP_ON
 				OUT.vertex = UnityPixelSnap( OUT.vertex );

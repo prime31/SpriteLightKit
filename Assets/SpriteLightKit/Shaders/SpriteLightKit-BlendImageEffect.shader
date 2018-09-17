@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/Blend Image Effect"
 {
 	Properties
@@ -54,7 +56,7 @@ struct fragmentInput
 fragmentInput vert( vertexInput i )
 {
 	fragmentInput o;
-	o.pos = mul( UNITY_MATRIX_MVP, i.vertex );
+	o.pos = UnityObjectToClipPos( i.vertex );
 	o.uv = TRANSFORM_TEX( i.texcoord, _MainTex );
     
 	return o;
@@ -64,11 +66,6 @@ fragmentInput vert( vertexInput i )
 half4 frag( fragmentInput i ) : COLOR
 {
 	half4 main = tex2D( _MainTex, i.uv );
-
-#if UNITY_UV_STARTS_AT_TOP
-	i.uv.y = 1.0f - i.uv.y;
-#endif
-
 	half4 lights = tex2D( _LightsTex, i.uv );
 
 	return _MultiplicativeFactor * main * lights;

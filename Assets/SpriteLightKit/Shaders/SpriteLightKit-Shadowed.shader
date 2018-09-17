@@ -1,4 +1,6 @@
-﻿// note that the sprite must have it's pivot in the center for this to work
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// note that the sprite must have it's pivot in the center for this to work
 Shader "prime[31]/Sprite Light Kit/Shadowed"
 {
 	Properties
@@ -80,7 +82,7 @@ v2f vert( appdata_t IN )
 	);
 	
 	float4 skewedVertex = mul( transformMatrix, IN.vertex );
-	OUT.vertex = mul( UNITY_MATRIX_MVP, skewedVertex );
+	OUT.vertex = UnityObjectToClipPos( skewedVertex );
 	
 	#ifdef PIXELSNAP_ON
 	OUT.vertex = UnityPixelSnap( OUT.vertex );
@@ -127,7 +129,7 @@ fixed4 _Color;
 v2f vert(appdata_t IN)
 {
 	v2f OUT;
-	OUT.vertex = mul( UNITY_MATRIX_MVP, IN.vertex );
+	OUT.vertex = UnityObjectToClipPos( IN.vertex );
 	OUT.texcoord = IN.texcoord;
 	OUT.color = IN.color * _Color;
 	#ifdef PIXELSNAP_ON
